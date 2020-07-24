@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Micro-frontends POC</title>
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <% if (isLocal) { %>
+    <script type="systemjs-importmap" src="http://localhost:8443/shared-libs-importmap.json"></script>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@mf/root": "//localhost:9000/@mf-root.js",
+          "@mf/app1": "//localhost:9001/@mf-app1.js",
+          "@mf/app2": "//localhost:9002/@mf-app2.js",
+          "@mf/navbar": "//localhost:9005/@mf-navbar.js"
+        }
+      }
+    </script>
+  <% } %>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
+</head>
+<body>
+  <div id="single-spa-application:@mf/navbar"></div>
+  <script>
+    System.import('@mf/root');
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
