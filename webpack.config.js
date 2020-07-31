@@ -8,7 +8,7 @@ module.exports = (env, { mode }) => {
 	return {
 		entry: path.resolve(__dirname, 'src/root'),
 		output: {
-			filename: '@mf-root.js',
+			filename: 'mf-root.js',
 			libraryTarget: 'system',
 			path: path.resolve(__dirname, 'dist'),
 		},

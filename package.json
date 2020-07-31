@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "lint": "echo \\\"no tests\\\""
   },
   "author": "AV",
   "license": "MIT",
